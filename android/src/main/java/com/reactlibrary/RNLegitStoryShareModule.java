@@ -256,7 +256,7 @@ public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
 
           if(stickerAsset != null){
             String stickerAssetPath = getFilePath();
-            backgroundAssetPath = new File(stickerAssetPath);
+            stickerFile = new File(stickerAssetPath);
             File tmpF = new File(stickerAsset);
             copyFile(tmpF, stickerFile);
             if(stickerFile == null){

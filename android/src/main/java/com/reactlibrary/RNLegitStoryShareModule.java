@@ -244,7 +244,26 @@ public class RNLegitStoryShareModule extends ReactContextBaseJavaModule {
         }
 
         case FILE: {
-          throw new Error(ERROR_TYPE_NOT_SUPPORTED);
+          if(backgroundAsset != null){
+            String backgroundAssetPath = getFilePath();
+            backgroundFile = new File(backgroundAssetPath);
+            File tmpF = new File(backgroundAsset);
+            copyFile(tmpF, backgroundFile);
+            if(backgroundFile == null){
+              throw new Error("Could not create file from Base64 in RNLegitStoryShare");
+            }
+          }
+
+          if(stickerAsset != null){
+            String stickerAssetPath = getFilePath();
+            stickerFile = new File(stickerAssetPath);
+            File tmpF = new File(stickerAsset);
+            copyFile(tmpF, stickerFile);
+            if(stickerFile == null){
+              throw new Error("Could not create file from Base64 in RNLegitStoryShare");
+            }
+          }
+          break;
         }
 
         default: {
